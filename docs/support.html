@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>净相册 PhotoSlim — 帮助与支持 / Support</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin:0; background:#f6f6f3; color:#17171b; font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:30px; margin:0 0 6px; letter-spacing:-.5px; }
+  h2 { font-size:18px; margin:32px 0 8px; }
+  p, li { color:#44444c; }
+  .muted { color:#8a8a94; font-size:14px; }
+  a { color:#2F7CFF; }
+  details { margin:10px 0; padding:14px 16px; background:#fff; border:1px solid #e6e6e0; border-radius:12px; }
+  summary { cursor:pointer; font-weight:600; }
+  .switch { display:flex; gap:10px; margin-bottom:24px; font-size:14px; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#0b0b0d; color:#f5f5f7; }
+    p, li { color:#c9c9d1; }
+    details { background:#15151a; border-color:#2a2a33; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="switch"><a href="?lang=zh">中文</a><span>·</span><a href="?lang=en">English</a></div>
+
+  <section data-lang="zh">
+    <h1>帮助与支持</h1>
+    <div class="muted">净相册 PhotoSlim</div>
+    <h2>联系我们</h2>
+    <p>遇到问题或有建议，发邮件到 <a href="mailto:support@example.com">support@example.com</a>，我们会在 2 个工作日内回复。</p>
+    <h2>常见问题</h2>
+    <details><summary>照片是真的被删除了吗？</summary><p>是。删除会经过 App 内确认和系统二次确认，然后从相册移除并进入系统「最近删除」，30 天内可恢复。开启 iCloud 照片时，删除会同步到其他设备。</p></details>
+    <details><summary>为什么提示"免费额度已用完"？</summary><p>免费版每天可以完成 1 次清理，单次最多 100 张。Pro 版不限次数和数量。</p></details>
+    <details><summary>删除后能撤回吗？</summary><p>App 内的「撤销」只对还没结算的待清理队列有效。已经删除的照片请在系统「最近删除」中恢复。</p></details>
+    <details><summary>视频为什么打不开？</summary><p>如果视频存在 iCloud 上，首次播放需要先下载，可能需要几秒；网络不佳时会失败，请稍后重试。</p></details>
+    <details><summary>会收集我的照片吗？</summary><p>不会。所有分析都在设备本地完成，照片不会上传。详见<a href="privacy.html">隐私政策</a>。</p></details>
+  </section>
+
+  <section data-lang="en">
+    <h1>Help &amp; Support</h1>
+    <div class="muted">PhotoSlim</div>
+    <h2>Contact</h2>
+    <p>Email <a href="mailto:support@example.com">support@example.com</a>. We usually reply within 2 business days.</p>
+    <h2>FAQ</h2>
+    <details><summary>Are photos really deleted?</summary><p>Yes. Deletion requires your confirmation in the app and a second confirmation from iOS, then items move to Recently Deleted and can be restored within 30 days. With iCloud Photos enabled, deletions sync to your other devices.</p></details>
+    <details><summary>Why do I see "Free limit reached"?</summary><p>The free plan allows one cleanup per day, up to 100 photos. Pro is unlimited.</p></details>
+    <details><summary>Can I undo a deletion?</summary><p>The in-app undo only applies to items still in the pending queue. Deleted photos can be restored from Recently Deleted in Photos.</p></details>
+    <details><summary>Why won't a video play?</summary><p>Videos stored in iCloud need to download first, which may take a few seconds. Retry on a better connection if it fails.</p></details>
+    <details><summary>Do you collect my photos?</summary><p>No. All analysis runs on your device. See our <a href="privacy.html">Privacy Policy</a>.</p></details>
+  </section>
+</main>
+<script>
+  (function () {
+    var param = new URLSearchParams(location.search).get('lang');
+    var lang = param || ((navigator.language || 'en').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+    document.querySelectorAll('section[data-lang]').forEach(function (s) {
+      s.style.display = s.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  })();
+</script>
+</body>
+</html>
